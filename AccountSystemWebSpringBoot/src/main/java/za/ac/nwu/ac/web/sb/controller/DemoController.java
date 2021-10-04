@@ -11,7 +11,7 @@ import za.ac.nwu.ac.domain.service.GeneralResponse;
 public class DemoController {
 
         @GetMapping("/ping")
-        public GeneralResponse<String> ping(@RequestParam(value = "echo", defaultValue = "pong")String echo){
-                return new GeneralResponse<String>(true,echo);
+        public GeneralResponse ping(@RequestParam(value = "echo", defaultValue = "pong")String echo){
+                return new GeneralResponse(true,echo);
         }
 }

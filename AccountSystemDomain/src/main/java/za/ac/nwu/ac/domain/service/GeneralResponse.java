@@ -1,16 +1,39 @@
 package za.ac.nwu.ac.domain.service;
 
-import za.ac.nwu.ac.domain.dto.NewName;
+import java.io.Serializable;
+import java.util.Objects;
 
-public class GeneralResponse<S> {
-    private NewName newName;
+public class GeneralResponse<T>  implements Serializable {
 
-    public GeneralResponse(boolean succesful, S echo) {
+    private  static final long serialVersionUID = -2109552919657529496L;
+    private final boolean successful;
+    private final transient T payload;
+
+    public GeneralResponse(boolean successful, T payload) {
+        this.successful = successful;
+        this.payload = payload;
     }
 
-    public void method()
-    {
-        newName = new NewName();
+    public boolean isSuccessful () {return successful;}
 
+    public T getPayload() { return payload; }
+
+    @Override
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GeneralResponse<?> that = (GeneralResponse<?>) o;
+        return successful == that.successful && Objects.equals(payload, that.payload);
     }
+    @Override
+    public int hashCode() { return Objects.hash(successful, payload);}
+
+    @Override
+    public String toString(){
+        return "GeneralResponse{" +
+                "successful=" + successful +
+                ", payload=" + payload +
+                '}';
+    }
+
 }
