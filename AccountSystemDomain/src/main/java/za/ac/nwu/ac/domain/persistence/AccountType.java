@@ -3,12 +3,20 @@ package za.ac.nwu.ac.domain.persistence;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "Dem_Account_Type", schema = "VITRSA_SANDBOX")
 public class AccountType implements Serializable {
 
     private  static final long serialVersionUID = 3833725316797154577L;
+
+    private Long accountTypeId;
+    private String mnemonic;
+    private String accountTypeName;
+    private LocalDate creationDate;
+
+    private Set<AccountTransaction> accountTransactions;
 
     @Id
     @SequenceGenerator(name = "VIT_RSA_GENERIC_SEQ", sequenceName = "VITRSA_SANDBOX.VIT_RSA_GENERIC_SEQ", allocationSize = 1)

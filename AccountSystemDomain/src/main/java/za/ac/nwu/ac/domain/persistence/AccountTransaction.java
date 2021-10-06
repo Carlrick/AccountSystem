@@ -5,8 +5,10 @@ import groovy.transform.EqualsAndHashCode;
 import groovy.transform.ToString;
 import groovy.xml.Entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Setter
 @Getter
