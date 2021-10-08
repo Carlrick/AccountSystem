@@ -37,4 +37,6 @@ public class AccountTransaction implements Serializable {
     private LocalDate transactionDate;
 
 
+    public AccountTransaction(AccountType accountType, long l, long l1, LocalDate now) {
+    }
 }

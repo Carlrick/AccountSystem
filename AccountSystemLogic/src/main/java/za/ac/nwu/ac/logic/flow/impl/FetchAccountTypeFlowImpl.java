@@ -6,6 +6,7 @@ import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.ac.translator.AccountTypeTranslator;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
@@ -15,13 +16,21 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
     private final AccountTypeTranslator accountTypeTranslator;
 
     @Autowired
-    public FetchAccountTypeFlowImpl(AccountTypeTranslator accountTypeTranslator){
+    public FetchAccountTypeFlowImpl(AccountTypeTranslator accountTypeTranslator) {
         this.accountTypeTranslator = accountTypeTranslator;
     }
 
     @Override
     public List<AccountTypeDto> getAllAccountTypes() {
-        final List<AccountTypeDto> allAccountTypes = accountTypeTranslator.getAllAccountTypes();
-        return allAccountTypes;
+      return accountTypeTranslator.getAllAccountTypes();
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonic(String mnemonic) {
+        return null;
+    }
+
+    public boolean methodToTest(){
+        return true;
     }
 }
